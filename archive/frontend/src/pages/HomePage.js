@@ -114,7 +114,8 @@ export default function HomePage() {
                 </div>
                 {(searchResults.states.length > 0 || searchResults.places.length > 0) && (
                   <div className="max-h-96 overflow-y-auto p-4 space-y-3">
-                    {searchResults.states.map((state) => (
+                    {Array.isArray(searchResults.states) &&
+searchResults.states.map((state) => (
                       <div
                         key={state.slug}
                         data-testid={`search-result-state-${state.slug}`}
@@ -128,7 +129,8 @@ export default function HomePage() {
                         </div>
                       </div>
                     ))}
-                    {searchResults.places.map((place) => (
+                    {Array.isArray(searchResults.places) &&
+searchResults.places.map((place) => (
                       <div
                         key={place.slug}
                         data-testid={`search-result-place-${place.slug}`}
