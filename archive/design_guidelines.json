@@ -1,0 +1,122 @@
+{
+  "project_overview": {
+    "domain": "Travel & Culture",
+    "theme": "light",
+    "archetype": "Archetype 1 (Organic & Earthy) with Cultural Vibrant Accents",
+    "style_keywords": [
+      "Modern",
+      "Vibrant",
+      "Elegant",
+      "Cultural"
+    ]
+  },
+  "colors": {
+    "background": "#FAF7F2",
+    "surface": "#FFFFFF",
+    "surface_glass": "bg-white/70 backdrop-blur-xl border border-white/40",
+    "text_primary": "#1A1814",
+    "text_secondary": "#5C564D",
+    "primary_terracotta": "#C65D47",
+    "secondary_forest": "#2A5A43",
+    "accent_marigold": "#E89A3C",
+    "border": "#E6E2D8"
+  },
+  "typography": {
+    "heading_font": "Cormorant Garamond, serif",
+    "body_font": "Outfit, sans-serif",
+    "rules": {
+      "h1": "text-5xl sm:text-6xl tracking-tight font-medium",
+      "h2": "text-3xl sm:text-4xl tracking-tight font-medium",
+      "h3": "text-xl sm:text-2xl font-medium",
+      "body": "text-base leading-relaxed text-[#5C564D]",
+      "overline": "text-xs tracking-[0.2em] uppercase font-bold text-[#C65D47]"
+    }
+  },
+  "spacing_and_layout": {
+    "container_padding": "px-6 md:px-12 lg:px-24",
+    "section_spacing": "py-24 md:py-32",
+    "grid_system": "Bento Grid Mode A for visual showcases. Use gap-8 or gap-12.",
+    "border_radius": "rounded-2xl"
+  },
+  "components": {
+    "buttons": "Rounded full (pill shape), px-8 py-3. Primary: bg-[#C65D47] text-white hover:bg-[#a84a37]. Secondary: bg-transparent border border-[#E6E2D8] text-[#1A1814] hover:bg-white.",
+    "cards": "Flat background (surface), 1px border-[#E6E2D8], no shadow by default. On hover: -translate-y-1, shadow-[0_8px_30px_rgb(0,0,0,0.04)]",
+    "map_interaction": "SVG based. Each state path should have hover:fill-[#C65D47]/20, stroke-[#E6E2D8]. On click, zoom in to state and trigger route change.",
+    "filters": "Pill-shaped toggles, horizontal scrollable row with hidden scrollbar. Active state uses primary terracotta.",
+    "inputs": "Minimalist, 1px solid border, focus:ring-1 focus:ring-[#C65D47] bg-white."
+  },
+  "motion": {
+    "library": "framer-motion",
+    "page_transitions": {
+      "initial": {
+        "opacity": 0,
+        "y": 20
+      },
+      "animate": {
+        "opacity": 1,
+        "y": 0
+      },
+      "transition": {
+        "duration": 0.6,
+        "ease": [
+          0.22,
+          1,
+          0.36,
+          1
+        ]
+      }
+    },
+    "hover_effects": "Image scale up (1.05) inside overflow-hidden containers.",
+    "stagger_children": 0.1
+  },
+  "media": {
+    "hero_bg": {
+      "url": "https://static.prod-images.emergentagent.com/jobs/33af335b-f16d-4bae-8d0d-70804551c4ca/images/b0f9b4b6a0daba433b3a144139bfadd06dd823587ec03c44586cde0c09daf370.png",
+      "description": "Abstract cultural hero background"
+    },
+    "map_placeholder": {
+      "url": "https://static.prod-images.emergentagent.com/jobs/33af335b-f16d-4bae-8d0d-70804551c4ca/images/6f5ed42eb0e6867ff68b32ba4288d489c70465b2d12a471bbeabbc39b8ec1585.png",
+      "description": "3D clay map of India (can be used as decorative element if SVG fails)"
+    },
+    "destinations": [
+      {
+        "name": "Taj Mahal, Uttar Pradesh",
+        "category": "UNESCO",
+        "url": "https://images.pexels.com/photos/30638768/pexels-photo-30638768.jpeg"
+      },
+      {
+        "name": "Kerala Backwaters",
+        "category": "Nature",
+        "url": "https://images.pexels.com/photos/35080149/pexels-photo-35080149.jpeg"
+      },
+      {
+        "name": "Jaipur Palace, Rajasthan",
+        "category": "Forts & Palaces",
+        "url": "https://images.unsplash.com/photo-1677868821169-08885cfcb495?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2MjJ8MHwxfHNlYXJjaHwzfHxqYWlwdXIlMjBwYWxhY2UlMjBhcmNoaXRlY3R1cmV8ZW58MHx8fHwxNzc2MzQxNDc3fDA&ixlib=rb-4.1.0&q=85"
+      }
+    ]
+  },
+  "pages": {
+    "Home": "Hero section with large interactive SVG map of India. Use raw SVG paths to render states. Map is the focal point. Add an overlay search bar floating above or beside the map. Below map, 'Featured States' or 'Trending Destinations' bento grid.",
+    "State_Detail": "Hero with state image. Filter row (UNESCO, Temples, Nature, etc.). Grid of places in that state. Clicking a place navigates to Place_Detail.",
+    "Place_Detail": "Immersive image gallery hero. Content split into 'About' (left, taking 2/3 width) and sticky sidebar on right containing 'How to Reach', 'Opening Times', 'Contact'. Use large clear typography and generous spacing."
+  },
+  "testing_attributes": [
+    "data-testid='india-map-svg'",
+    "data-testid='state-path-{stateName}'",
+    "data-testid='search-input'",
+    "data-testid='filter-button-{category}'",
+    "data-testid='place-card-{placeName}'",
+    "data-testid='place-detail-title'",
+    "data-testid='back-to-map-button'"
+  ],
+  "instructions_to_main_agent": [
+    "Initialize project with Tailwind, framer-motion, lucide-react.",
+    "Import Cormorant Garamond and Outfit fonts from Google Fonts via layout.",
+    "Create a mock data file (e.g., /data/tourism.json) containing at least 4 states (like Rajasthan, Kerala, Uttar Pradesh, Maharashtra) and 2-3 tourist places per state with details (about, how_to_reach, opening_times, contact) to properly test the UI flows.",
+    "Map interaction is crucial: Implement a custom SVG of India where each <path> represents a state. Make it interactive using framer-motion. On click, update view to State Detail.",
+    "Use lucide-react for all iconography.",
+    "Do NOT use standard HTML date or select inputs. If needed, build custom styled elements or stick to text inputs and simple pills for filters.",
+    "Apply 'data-testid' attributes extensively to all interactive buttons, map paths, and search forms for seamless E2E testing."
+  ]
+}
