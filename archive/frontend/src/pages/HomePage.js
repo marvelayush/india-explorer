@@ -21,21 +21,33 @@ export default function HomePage() {
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const [statesRes, featuredRes] = await Promise.all([
-          axios.get(`${API}/states`),
-          axios.get(`${API}/categories`),
-        ]);
-        setStates(statesRes.data);
-        // Get some sample places for featured section
-        const searchRes = await axios.get(`${API}/search?q=UNESCO`);
-        setFeaturedPlaces(searchRes.data.slice(0, 6));
-      } catch (err) {
-        console.error('Failed to fetch data:', err);
-      } finally {
-        setLoading(false);
-      }
-    };
+  try {
+    const statesRes = await axios.get(`${API}/states`);
+
+    console.log("States Response:", statesRes.data);
+
+    setStates(
+      Array.isArray(statesRes.data) ? statesRes.data : []
+    );
+
+    const searchRes = await axios.get(
+      `${API}/search?q=UNESCO`
+    );
+
+    console.log("Search Response:", searchRes.data);
+
+    const places = searchRes.data.places || searchRes.data || [];
+
+    setFeaturedPlaces(
+      Array.isArray(places) ? places.slice(0, 6) : []
+    );
+
+  } catch (err) {
+    console.error("Failed to fetch data:", err);
+  } finally {
+    setLoading(false);
+  }
+};
     fetchData();
   }, []);
 
