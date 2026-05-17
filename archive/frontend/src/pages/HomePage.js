@@ -59,7 +59,10 @@ export default function HomePage() {
     const timer = setTimeout(async () => {
       try {
         const res = await axios.get(`${API}/search?q=${encodeURIComponent(searchQuery)}`);
-        setSearchResults(res.data);
+        setSearchResults({
+  states: Array.isArray(res.data.states) ? res.data.states : [],
+  places: Array.isArray(res.data.places) ? res.data.places : Array.isArray(res.data) ? res.data : []
+});
       } catch (err) {
         console.error('Search error:', err);
       }
@@ -130,7 +133,7 @@ searchResults.states.map((state) => (
                       </div>
                     ))}
                     {Array.isArray(searchResults.places) &&
-searchResults.places.map((place) => (
+                        searchResults.places.map((place) => (
                       <div
                         key={place.slug}
                         data-testid={`search-result-place-${place.slug}`}
@@ -203,7 +206,7 @@ searchResults.places.map((place) => (
           </h2>
         </motion.div>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
-          {states.map((state, i) => (
+          {(Array.isArray(states) ? states : []).map((state, i) => (
             <motion.div
               key={state.slug}
               data-testid={`state-card-${state.slug}`}
