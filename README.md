@@ -97,7 +97,7 @@ Dynamic Destination Data + Images
 
 # 📸 Preview
 
-![India Explorer](homepage.png)
+![India Explorer](mainpage.png)
 
 ---
 
