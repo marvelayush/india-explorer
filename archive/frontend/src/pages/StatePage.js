@@ -24,7 +24,7 @@ export default function StatePage() {
       try {
         const res = await axios.get(`${API}/states/${slug}`);
         setState(res.data.state);
-        setPlaces(res.data.places);
+        setPlaces(Array.isArray(res.data.places) ? res.data.places : []);
       } catch (err) {
         console.error('Failed to fetch state:', err);
       } finally {
@@ -33,12 +33,13 @@ export default function StatePage() {
     };
     fetchState();
   }, [slug]);
+  const safePlaces = Array.isArray(places) ? places : [];
 
-  const filteredPlaces = activeFilter === 'All'
-    ? places
-    : places.filter(p => p.category === activeFilter);
+const filteredPlaces = activeFilter === 'All'
+    ? safePlaces
+    : safePlaces.filter(p => p.category === activeFilter);
 
-  const availableCategories = ['All', ...new Set(places.map(p => p.category))];
+  const availableCategories = ['All', ...new Set(safePlaces.map(p => p.category))];
 
   const groupedByCity = useMemo(() => {
     const groups = {};
@@ -119,7 +120,7 @@ export default function StatePage() {
         </motion.p>
         {state.highlights && state.highlights.length > 0 && (
           <div className="flex flex-wrap gap-2 mt-4">
-            {state.highlights.map((h, i) => (
+            {(Array.isArray(state.highlights) ? state.highlights : []).map((h, i) => (
               <span key={i} className="px-3 py-1 rounded-full text-xs font-medium bg-[#2A5A43]/10 text-[#2A5A43]">
                 {h}
               </span>
@@ -174,7 +175,7 @@ export default function StatePage() {
                 </div>
                 <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
                   <AnimatePresence mode="popLayout">
-                    {cityPlaces.map((place, i) => (
+                    {(Array.isArray(cityPlaces) ? cityPlaces : []).map((place, i) => (
                       <PlaceCard key={place.slug} place={place} index={i} />
                     ))}
                   </AnimatePresence>
