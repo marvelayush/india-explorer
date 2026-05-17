@@ -29,7 +29,7 @@ export default function HomePage() {
         setStates(statesRes.data);
         // Get some sample places for featured section
         const searchRes = await axios.get(`${API}/search?q=UNESCO`);
-        setFeaturedPlaces(searchRes.data.places.slice(0, 6));
+        setFeaturedPlaces(searchRes.data.slice(0, 6));
       } catch (err) {
         console.error('Failed to fetch data:', err);
       } finally {
@@ -248,9 +248,9 @@ export default function HomePage() {
             </h2>
           </motion.div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {featuredPlaces.map((place, i) => (
-              <PlaceCard key={place.slug} place={place} index={i} />
-            ))}
+            {(Array.isArray(featuredPlaces) ? featuredPlaces : []).map((place, i) => (
+  <PlaceCard key={place.slug} place={place} index={i} />
+))}
           </div>
         </section>
       )}
