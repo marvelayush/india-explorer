@@ -11,46 +11,34 @@ A full-stack travel exploration platform showcasing Indian tourist destinations 
 
 A full-stack travel exploration platform showcasing Indian tourist destinations.
 
-## ✨ Features
+---
 
-- 🗺 Explore famous Indian tourist destinations
-- 📸 Dynamic image integration
-- ⚡ FastAPI backend API support
-- 🎨 Responsive modern UI using React + Tailwind CSS
-- 🔍 Search and exploration functionality
-- 🌐 Full-stack architecture
+# ✨ Features
+
+| Feature | Description |
+|---|---|
+| 🗺️ Tourist Exploration | Browse famous places across India |
+| 📸 Dynamic Images | Destination images loaded dynamically |
+| ⚡ FastAPI Backend | High-performance Python backend |
+| 🎨 Modern UI | Built using React + Tailwind CSS |
+| 🔍 Search Functionality | Quickly find destinations |
+| 🌐 Full-Stack Architecture | Connected frontend + backend + database |
 
 ---
 
-## 🛠 Tech Stack
+# 🛠️ Tech Stack
 
-### Frontend
-- React.js
-- Tailwind CSS
-- Vite
-
-### Backend
-- FastAPI
-- Python
-
-### Database
-- MongoDB
+| Frontend | Backend | Database |
+|---|---|---|
+| React.js | FastAPI | MongoDB |
+| Tailwind CSS | Python | BSON/JSON |
+| Vite | Uvicorn | |
 
 ---
 
-## 📂 Project Structure
+# 🚀 Installation
 
-```bash
-frontend/   -> React frontend
-backend/    -> FastAPI backend
-archive/    -> Additional project files
-```
-
----
-
-## 🚀 Installation
-
-### Frontend
+## Frontend Setup
 
 ```bash
 cd frontend
@@ -58,7 +46,7 @@ npm install
 npm run dev
 ```
 
-### Backend
+## Backend Setup
 
 ```bash
 cd backend
@@ -68,22 +56,68 @@ python server.py
 
 ---
 
-## 📸 Screenshots
+# 📂 Project Structure
 
-(Add your screenshots here later)
+```bash
+india-explorer/
+│
+├── frontend/
+│   ├── src/
+│   ├── public/
+│   ├── package.json
+│
+├── backend/
+│   ├── server.py
+│   ├── requirements.txt
+│   ├── fetch_images.py
+│
+├── archive/
+│
+└── README.md
+```
 
 ---
 
-## 🌟 Future Improvements
+# 🧠 Architecture
 
-- AI-based travel recommendations
-- User authentication
-- Maps integration
-- Weather API integration
-- Hotel and transport suggestions
+```text
+Frontend (React + Tailwind)
+            │
+            ▼
+Backend API (FastAPI)
+            │
+            ▼
+MongoDB Database
+            │
+            ▼
+Dynamic Destination Data + Images
+```
 
 ---
 
-## 👨‍💻 Author
+# 📸 Preview
 
-Ayush Narayan
+![India Explorer](homepage.png)
+
+---
+
+# 🌟 Future Improvements
+
+| Planned Feature | Status |
+|---|---|
+| 🤖 AI Travel Recommendations | 🔜 Planned |
+| 🗺️ Maps Integration | 🔜 Planned |
+| 🌦️ Weather API | 🔜 Planned |
+| 👤 User Authentication | 🔜 Planned |
+| ❤️ Favorites System | 🔜 Planned |
+
+---
+
+# 👨‍💻 Author
+
+**Ayush Narayan**
+
+BTech ISE Student  
+Full-Stack Development • Python • React • FastAPI
+
+---
