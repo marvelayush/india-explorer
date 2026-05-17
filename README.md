@@ -3,6 +3,9 @@
 A full-stack travel exploration platform showcasing Indian tourist destinations with interactive UI, detailed information, dynamic images, and modern web technologies.
 
 ---
+## 📸 Preview
+
+![India Explorer](Screenshot 2026-05-17 224625.png)
 
 ## ✨ Features
 
