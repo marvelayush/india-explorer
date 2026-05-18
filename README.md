@@ -2,6 +2,8 @@
 
 A full-stack travel exploration platform showcasing Indian tourist destinations with interactive UI, detailed information, dynamic images, and modern web technologies.
 
+check it out(deployed) at :- https://india-explorer-peach.vercel.app 
+
 ---
 # 🇮🇳 India Explorer
 
