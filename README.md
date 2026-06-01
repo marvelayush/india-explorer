@@ -4,6 +4,7 @@
 
 🚀 Deployed Application:  
 https://india-explorer-peach.vercel.app
+AFTER CLICKING ON WEBSITE ONLY FRONTEND WILL BE SHOWN , WAIT 30 SECONDS FOR BACKEND TO BE FETCHED ,
 
 ---
 
